@@ -1,0 +1,42 @@
+image: node:10.15.0
+pipelines:
+  default:
+    - step:
+       script:          
+          - npm install
+          - yarn global add grunt-cli #added grant locally
+          - yarn
+          #- grunt #will add later..now needs to be fixed
+          
+          #- npm tscop
+          #- npm install -g grunt-cli
+
+  branches :
+    David-RAS:
+      - step:
+        script:
+          - npm install
+          - npm run lint
+    NoPu:
+      - step:
+        script:
+          - npm install
+          - npm run lint
+    Moses:
+      - step:
+        script:
+          - npm install
+          - npm run lint
+    mwando-RAS:
+      - step:
+        script:
+          - npm install
+          - npm run lint
+    elias-branch:
+      - step:
+        script:
+          - npm install
+          - npm run lint
+
+
+

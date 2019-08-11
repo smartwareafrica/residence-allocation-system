@@ -1,0 +1,49 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/body']">Logo</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link active" [routerLink]="[ '/body']">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ '/about']">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ '/contact' ]" tabindex="-1" aria-disabled="true">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="../assets/avatar.png" alt="Avatar" class="avatar">
+                </a>
+                <!--
+                    These items provide links to access other modules 
+                    They will be removed after builds have been configured
+                -->
+                <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                    <a class="dropdown-item" [routerLink]="['/login']">John Doe <br> johndoe@gmail.com</a>
+                    <a class="dropdown-item" [routerLink]="['/addHouse']">Add a house</a>
+
+                    <a class="dropdown-item" [routerLink]="['/myHouses']">My houses</a>
+                    <!--
+                        <a class="dropdown-item" [routerLink]="['/thankYou']">thank you</a>
+                        <a class="dropdown-item" [routerLink]="['/viewHouse']">View House</a>
+                   -->
+
+                    <a class="dropdown-item" [routerLink]="['/login']">Log out</a>
+                </div>
+
+            </li>
+        </div>
+    </div>
+</nav>

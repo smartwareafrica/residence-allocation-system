@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="page-header">
+        <h4>SIGN UP</h4>
+    </div>
+
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="form" action="" accept-charset="UTF-8" method="get">
+                    <div class="input-group mx-auto">
+                        <label for="sel-options">I am a: &nbsp; &nbsp; &nbsp; </label>
+                        <div class="form-group">
+                            <select class="form-control" formControlName="iam"
+                                [ngClass]="{'is-invalid': form.get('iam').touched && form.get('iam').invalid}">
+                                
+                                <option value="0" selected>House Owner</option>
+                                <option value="1">Student</option>
+                                <div class="invalid-feedback">
+                                        <div> Choose one</div>
+                                    </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">person</i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Full Name" id="registerFullName"
+                            formControlName="full_name"
+                            [ngClass]="{'is-invalid': form.get('full_name').touched && form.get('full_name').invalid}">
+                        <div class="invalid-feedback">
+                            <div> Fullname is required</div>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">phone</i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="cell phone" id="registerPhoneNumber"
+                            formControlName="cellphone"
+                            [ngClass]="{'is-invalid': form.get('cellphone').touched && form.get('cellphone').invalid}">
+                        <div class="invalid-feedback">
+                            <div> Cell phone is required</div>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">person</i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="john@gmail.com" id="registerEmail"
+                            formControlName="email"
+                            [ngClass]="{'is-invalid': form.get('email').touched && form.get('email').invalid}">
+                        <div class="invalid-feedback">
+                            <div *ngIf="form.get('email').errors.required"> Email is required</div>
+                            <div *ngIf="form.get('email').errors.email"> Email must be a valid email Address</div>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">lock</i>
+                            </span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Please type your password"
+                            id="registerPassword" formControlName="password"
+                            [ngClass]="{'is-invalid': form.get('password').touched && form.get('password').invalid}">
+                        <div class="invalid-feedback">
+                            <div *ngIf="form.get('password').errors?.required "> Password is required</div>
+                            <div *ngIf="form.get('password').errors?.minlength "> Password must be at least 6
+                                characters</div>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">lock</i>
+                            </span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Please confirm your password"
+                            id="registerConfirmPassword" formControlName="connpassword"
+                            [ngClass]="{'is-invalid': form.get('connpassword').touched && form.get('connpassword').invalid}">
+                        <div class="invalid-feedback">
+                            <div *ngIf="form.get('connpassword').errors?.required "> Confirm Password is required</div>
+                            <div *ngIf="form.get('connpassword').errors?.minlength "> Confirm Password must be at least
+                                6
+                                characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Sign Up" class="btn-success btn-space btn-block btn-lg ">
+                    </div>
+                    <div class="d-flex float-right justify-content-center" id="sendUserToLogin">
+                        <a [routerLink]="[ '/login']">Already have an account? Login Here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

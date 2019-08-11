@@ -1,0 +1,28 @@
+# STAGE 1: Build ###
+
+FROM node:alpine as builder
+
+# creating directory in the image and setting the working environment i the same image
+
+WORKDIR /ResidenceAllocationSystem/
+
+# Installing dependencies. by injecting the package.json into our image
+COPY . .
+RUN npm install && \
+    npm run build
+
+#step 2: specify the server#
+FROM nginx:alpine
+
+# Removing nginx default page.
+RUN rm -rf /usr/share/nginx/html/*
+
+#copying ras source into web browser server root
+COPY --from=builder /ResidenceAllocationSystem/dist/* /usr/share/nginx/html/
+
+
+
+#to build docker image
+#docker build -t ras:v1 . 
+#to run the docker image
+#docker run -p 80:80 ras:v1

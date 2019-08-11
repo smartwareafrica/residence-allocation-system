@@ -1,0 +1,21 @@
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+h4 {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.card {
+    height: wrap_content;
+    margin-top: 50px;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: white !important;
+}
+
+.btn-space {
+    margin-top: 60px;
+}

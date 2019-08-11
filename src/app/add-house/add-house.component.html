@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="page-header">
+        <h4>ADD HOUSE</h4>
+    </div>
+
+
+    <form #form="ngForm" (submit)="onSubmit(form)">
+
+        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+
+        <!--Picking image from gallery -->
+        <img [src]="imgURL" class="imagepreview center rounded" height="20%" width="40%" *ngIf="imgURL">
+        <span style="color:red;" *ngIf="message">{{message}}</span>
+        <input #file type="file" accept='image/*' (change)="preview(file.files)" name="image" #image="ngModel" [(ngModel)]="service.formData.image" id="image" />
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                    <div class="form-group row">
+                        <label for="houseName" class="col-sm-2 col-form-label col-form-label-sm">
+                           Name :
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-sm" name="name" #name="ngModel" [(ngModel)]="service.formData.name" placeholder="House Name" required>
+                            <div *ngIf="name.invalid && name.touched" class="validation-error">*House name is required!</div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="location" class="col-sm-2 col-form-label col-form-label-sm">
+                            Location:
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-sm" id="inputLocation" name="location" #location="ngModel" [(ngModel)]="service.formData.location" placeholder="Location" required>
+                            <div *ngIf="location.invalid && location.touched" class="validation-error">*Location is required!</div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="description" class="col-sm-2 col-form-label col-form-label-sm">
+                            Description:
+                            </label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="5" id="description" name="description" #description="ngModel" [(ngModel)]="service.formData.description" placeholder="Description of house" required>
+                                </textarea>
+                            <div *ngIf="description.invalid && description.touched" class="validation-error">*Please write a description for your house.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-2 col-form-label col-form-label-sm">
+                            Price:
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-sm" id="inputPrice" name="price" #price="ngModel" [(ngModel)]="service.formData.price" placeholder="Price" required>
+                            <div *ngIf="price.invalid && price.touched" class="validation-error">*Price is required!</div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-2 col-form-label col-form-label-sm">Owner contacts:</label>
+                        <div class="col-sm-10">
+
+                            <input type="text" class="form-control form-control-sm" id="inputOwnercontacts" name="contact" #contact="ngModel" [(ngModel)]="service.formData.contact" placeholder="Owner contacts" required>
+
+                            <div *ngIf="contact.invalid && contact.touched" class="validation-error">*Please fill your contact information.</div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-2 col-form-label col-form-label-sm">Maximum number of
+                            households:</label>
+                        <div class="col-sm-10">
+
+                            <input type="text" class="form-control form-control-sm" id="inputNoOfHouseholds" name="households" #households="ngModel" [(ngModel)]="service.formData.households" placeholder="Maximum number of households" required>
+
+                            <div *ngIf="households.invalid && households.touched" class="validation-error">*This field is required!</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-md btn-info" style="width:100%" [disabled]="form.invalid" id="addHouseButton">Add</button>
+                 </span>
+            </div>
+        </div>
+    </form>
+</div>

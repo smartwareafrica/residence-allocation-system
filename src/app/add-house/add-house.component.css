@@ -1,0 +1,34 @@
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+h4 {
+    margin-top: 50px;
+    text-align: center;
+    color: blue;
+}
+
+.row {
+    margin-top: 1%;
+}
+
+.btn-md {
+    margin-top: 5px;
+    max-width: 40%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+input.ng-touched.ng-invalid {
+    border-color: #dc3545;
+}
+
+div.validation-error {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}

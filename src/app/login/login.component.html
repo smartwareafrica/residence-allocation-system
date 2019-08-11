@@ -1,0 +1,49 @@
+<!--
+ This component handles users who log into the system 
+ 
+The users details are generated from an API hosted on aws 
+
+-->
+<div class="container">
+    <div class="page-header">
+        <h4>LOG IN</h4>
+    </div>
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-body">
+                <form name="form" [formGroup]="form">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="material-icons">person</i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="john@gmail.com" id="loginEmail" formControlName="email" [ngClass]="{'is-invalid': form.get('email').touched && form.get('email').invalid}">
+                        <div class="invalid-feedback">
+                            <div *ngIf="form.get('email').errors.required"> Email is required</div>
+                            <div *ngIf="form.get('email').errors.email"> Email must be a valid email Address</div>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="material-icons">lock</i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="******" id="loginPassword" formControlName="password" [ngClass]="{'is-invalid': form.get('password').touched && form.get('password').invalid}">
+                        <div class="invalid-feedback">
+                            <div *ngIf="form.get('password').errors?.required "> Password is required</div>
+                            <div *ngIf="form.get('password').errors?.minlength "> Password must be at least 6 characters
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex float-left justify-content-center" id="loginResetPassword">
+                        <a href="">Forgot your password?</a>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Log In" class="btn-success btn-space btn-block btn-lg" id="loginSubmit">
+                    </div>
+                    <div class="d-flex float-right justify-content-center" id="loginResetPassword">
+                        <a [routerLink]="[ '/register']">New here? Create an account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

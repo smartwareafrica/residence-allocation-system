@@ -1,0 +1,45 @@
+.navbar {
+    border-radius: 8px;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar-nav>li {
+    color: white;
+}
+
+.container {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    width: 80%;
+    height: 40%;
+}
+
+.carousel {
+    border-radius: 1%;
+    overflow: hidden;
+}
+
+.card {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+form {
+    margin: 0;
+    padding: 1em 0;
+}
+
+.form-group {
+    margin-right: 2%
+}
+
+.col-form-label {
+    min-width: 15%;
+}
+
+.btn-info {
+    width: 60%
+}

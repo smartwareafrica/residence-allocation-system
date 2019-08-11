@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="form-group col-xs-4">
+
+        <label for="comment">Send us a question or feedback:</label>
+        <textarea class="form-control z-depth-1 form-rounded" rows="4" id="sendFeedback" formControlName="message"
+            [ngClass]="{'is-invalid': form.get('message').touched && form.get('message').invalid}"> 
+           
+    </textarea>
+    <div class="invalid-feedback">
+        <div> Message is required</div>
+    </div>
+
+
+    </div>
+    <div class="text-right">
+        <button type="button" class="btn btn-primary" id="submitFeedback">Send</button>
+    </div>
+
+</div>
+
+<app-footer></app-footer>
