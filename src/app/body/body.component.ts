@@ -13,11 +13,11 @@ import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Houseservice } from '../shared/houseservice';
-import { AngularFireDatabase} from '@angular/fire/database';
 import { HouseserviceService } from '../shared/houseservice.service';
 
 @Component({
   selector: 'app-body',
+  standalone: false,
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css'],
 

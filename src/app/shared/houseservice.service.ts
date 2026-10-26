@@ -8,10 +8,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Houseservice } from '../shared/houseservice';
-import {AngularFirestore} from '@angular/fire/firestore';
-import { FormsModule } from "@angular/forms";
-import { error } from 'util';
-import {BehaviorSubject} from  'rxjs';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +37,7 @@ retrieve(){
   }
   //retrieve data from the db
   displayHouses(){
-    return this.firestore.collection('userData').snapshotChanges();
+    return this.firestore.collection<Houseservice>('userData').snapshotChanges();
   }
 
 

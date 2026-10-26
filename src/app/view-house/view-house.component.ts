@@ -7,7 +7,7 @@
 *         - Deleting data from the database 
 */
 
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Component, OnInit } from '@angular/core';
 // import { Houseservice } from '../shared/houseservice';
 import { AddHouseService } from '../add-house/shared/add-house.service';
@@ -15,6 +15,7 @@ import { AddHouse} from '../add-house/shared/add-house.model';
 
 @Component({
   selector: 'app-view-house',
+  standalone: false,
   templateUrl: './view-house.component.html',
   styleUrls: ['./view-house.component.css']
 })
