@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule} from '@angular/fire/database';
-import {AngularFirestoreModule} from '@angular/fire/firestore'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 /*
 *angularFire2 is outdated that is why I john abutto has decided to
 *comment it and use the current and recommended version angular/fire
@@ -39,7 +39,6 @@ import { ViewHouseComponent } from './view-house/view-house.component';
     AddHouseComponent,
     LoginComponent,
     AboutComponent,
-    ContactComponent,
     ContactComponent,
     FooterComponent,
     ThankYouComponent,

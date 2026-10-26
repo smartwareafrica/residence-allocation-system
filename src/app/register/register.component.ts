@@ -4,6 +4,7 @@ import { FormGroupDirective, Validators, FormGroup, FormControl } from '@angular
 
 @Component({
   selector: 'app-register',
+  standalone: false,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

@@ -8,16 +8,16 @@
 
 import { Component, OnInit} from '@angular/core';
 import { AddHouseService } from './shared/add-house.service';
-import { error } from '@angular/compiler/src/util';
 import { AddHouse} from './shared/add-house.model';
 import { NgForm } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 
 
 @Component({
   selector: 'app-add-house',
+  standalone: false,
   templateUrl: './add-house.component.html',
   styleUrls: ['./add-house.component.css']
 })

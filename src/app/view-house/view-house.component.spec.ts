@@ -1,14 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewHouseComponent } from './view-house.component';
+import { provideFirestoreStub } from '../testing/firestore-stub';
 
 describe('ViewHouseComponent', () => {
   let component: ViewHouseComponent;
   let fixture: ComponentFixture<ViewHouseComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewHouseComponent ]
+      declarations: [ ViewHouseComponent ],
+      providers: [ provideFirestoreStub() ]
     })
     .compileComponents();
   }));

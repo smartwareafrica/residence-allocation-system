@@ -1,6 +1,6 @@
 # STAGE 1: Build ###
 
-FROM node:alpine as builder
+FROM node:24-alpine AS builder
 
 # creating directory in the image and setting the working environment i the same image
 
@@ -18,7 +18,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 #copying ras source into web browser server root
-COPY --from=builder /ResidenceAllocationSystem/dist/* /usr/share/nginx/html/
+COPY --from=builder /ResidenceAllocationSystem/dist/ResidenceAllocationSystem/browser/ /usr/share/nginx/html/
 
 
 
