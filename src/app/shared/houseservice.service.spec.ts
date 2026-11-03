@@ -22,14 +22,12 @@ describe('HouseserviceService', () => {
     const service: HouseserviceService = TestBed.inject(HouseserviceService);
     const house = { name: 'Test house' };
     await service.sendData(house);
-    expect(firestore.collection).toHaveBeenCalledWith('userData');
-    expect(firestore.collectionRef.add).toHaveBeenCalledWith(house);
+    expect(firestore.add).toHaveBeenCalledWith('userData', house);
   });
 
   it('should display houses from the userData collection', () => {
     const service: HouseserviceService = TestBed.inject(HouseserviceService);
     service.displayHouses();
-    expect(firestore.collection).toHaveBeenCalledWith('userData');
-    expect(firestore.collectionRef.snapshotChanges).toHaveBeenCalled();
+    expect(firestore.watch).toHaveBeenCalledWith('userData');
   });
 });

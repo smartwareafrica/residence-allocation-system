@@ -21,7 +21,6 @@ describe('AddHouseService', () => {
   it('should retrieve houses from the userData collection', () => {
     const service: AddHouseService = TestBed.inject(AddHouseService);
     service.retrieve();
-    expect(firestore.collection).toHaveBeenCalledWith('userData');
-    expect(firestore.collectionRef.snapshotChanges).toHaveBeenCalled();
+    expect(firestore.watch).toHaveBeenCalledWith('userData');
   });
 });

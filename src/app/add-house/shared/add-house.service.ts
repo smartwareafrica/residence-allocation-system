@@ -5,7 +5,7 @@
 */
 
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
+import { FirestoreService } from '../../shared/firestore.service';
 import {AddHouse} from './add-house.model';
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AddHouseService {
   formData: AddHouse;
   
 //interact with firebase
-  constructor(private firestore :AngularFirestore) { }
+  constructor(private firestore: FirestoreService) { }
 
    ngOnInit(): void {
     this.retrieve();
@@ -25,7 +25,7 @@ export class AddHouseService {
 
 /*this function retrieves data from firebase firestore database*/
   retrieve(){
-return this.firestore.collection<AddHouse>('userData').snapshotChanges();
+return this.firestore.watch<AddHouse>('userData');
   }
 
 }

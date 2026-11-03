@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, provideZoneChangeDetection } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 /*
 *angularFire2 is outdated that is why I john abutto has decided to
 *comment it and use the current and recommended version angular/fire
@@ -13,9 +10,6 @@ import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 */
 
 import { AddHouseService } from './add-house/shared/add-house.service';
-//import {AngularFireModule} from 'angularfire2';
-//import {AngularFireDatabaseModule} from 'angularfire2/database';
-import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -49,12 +43,9 @@ import { ViewHouseComponent } from './view-house/view-house.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFirestoreModule,
     FormsModule
   ],
-  providers: [AddHouseService],
+  providers: [provideZoneChangeDetection(), AddHouseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

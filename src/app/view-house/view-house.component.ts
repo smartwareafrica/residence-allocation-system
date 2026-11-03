@@ -7,7 +7,7 @@
 *         - Deleting data from the database 
 */
 
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FirestoreService } from '../shared/firestore.service';
 import { Component, OnInit } from '@angular/core';
 // import { Houseservice } from '../shared/houseservice';
 import { AddHouseService } from '../add-house/shared/add-house.service';
@@ -22,17 +22,12 @@ import { AddHouse} from '../add-house/shared/add-house.model';
 export class ViewHouseComponent implements OnInit {
   list: AddHouse[];
  constructor(private service: AddHouseService,
-    private firestore: AngularFirestore) { }
+    private firestore: FirestoreService) { }
 
 
   ngOnInit() {
-    this.service.retrieve().subscribe(actionArray => {
-      this.list = actionArray.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        } as AddHouse;
-      })
+    this.service.retrieve().subscribe(houses => {
+      this.list = houses;
     });
   }
  
@@ -42,7 +37,7 @@ export class ViewHouseComponent implements OnInit {
  
   onDelete(id: string) {
     if (confirm("Are you sure to delete this record?")) {
-      this.firestore.doc('userData/' + id).delete();
+      this.firestore.delete('userData/' + id);
     }
   }
 

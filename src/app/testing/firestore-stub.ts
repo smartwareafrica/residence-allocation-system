@@ -1,30 +1,22 @@
 /*
-* In-memory stand-in for AngularFirestore used by unit tests,
+* In-memory stand-in for FirestoreService used by unit tests,
 * so specs never talk to the real firebase project.
 */
 import { Provider } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { of } from 'rxjs';
+import { FirestoreService } from '../shared/firestore.service';
 
 export function createFirestoreStub() {
-  const collectionRef = {
-    snapshotChanges: jasmine.createSpy('snapshotChanges').and.returnValue(of([])),
-    add: jasmine.createSpy('add').and.resolveTo({ id: 'new-id' })
-  };
-  const docRef = {
-    update: jasmine.createSpy('update').and.resolveTo(),
-    delete: jasmine.createSpy('delete').and.resolveTo()
-  };
   return {
-    collectionRef,
-    docRef,
-    collection: jasmine.createSpy('collection').and.returnValue(collectionRef),
-    doc: jasmine.createSpy('doc').and.returnValue(docRef)
+    watch: vi.fn().mockReturnValue(of([])),
+    add: vi.fn().mockResolvedValue({ id: 'new-id' }),
+    update: vi.fn().mockResolvedValue(undefined),
+    delete: vi.fn().mockResolvedValue(undefined)
   };
 }
 
 export type FirestoreStub = ReturnType<typeof createFirestoreStub>;
 
 export function provideFirestoreStub(stub: FirestoreStub = createFirestoreStub()): Provider {
-  return { provide: AngularFirestore, useValue: stub };
+  return { provide: FirestoreService, useValue: stub };
 }
