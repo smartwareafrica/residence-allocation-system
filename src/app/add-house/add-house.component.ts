@@ -10,7 +10,7 @@ import { Component, OnInit} from '@angular/core';
 import { AddHouseService } from './shared/add-house.service';
 import { AddHouse} from './shared/add-house.model';
 import { NgForm } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FirestoreService } from '../shared/firestore.service';
 
 
 
@@ -24,7 +24,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class AddHouseComponent implements OnInit {
 
 constructor(public service: AddHouseService,
-            public firestore: AngularFirestore) { }
+            public firestore: FirestoreService) { }
 
     public imagePath;
     imgURL: any;
@@ -77,9 +77,9 @@ preview(files) {
     let data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id == null) {
-      this.firestore.collection('userData').add(data);
+      this.firestore.add('userData', data);
     } else {
-      this.firestore.doc('userData/' + form.value.id).update(data);
+      this.firestore.update('userData/' + form.value.id, data);
     }
     this.resetForm(form);
   }

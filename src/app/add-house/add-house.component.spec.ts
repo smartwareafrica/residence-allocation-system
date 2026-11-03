@@ -1,4 +1,4 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormsModule } from '@angular/forms';
 
@@ -9,14 +9,14 @@ describe('AddHouseComponent', () => {
   let component: AddHouseComponent;
   let fixture: ComponentFixture<AddHouseComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [ FormsModule ],
       declarations: [ AddHouseComponent ],
       providers: [ provideFirestoreStub() ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AddHouseComponent);

@@ -44,9 +44,9 @@ showHouses(){
   .subscribe(data => {
     this.houses = data.map (e => {
       return{
-        name: e.payload.doc.data()['name'],
-        Location:e.payload.doc.data()['location'],
-        Description: e.payload.doc.data()['description'],
+        name: e.name,
+        Location: e.location,
+        Description: e.description,
       };
     })
 

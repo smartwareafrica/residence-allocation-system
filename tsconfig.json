@@ -6,6 +6,7 @@
         "declaration": false,
         "module": "preserve",
         "moduleResolution": "bundler",
+        "strict": false,
         "experimentalDecorators": true,
         "importHelpers": true,
         "skipLibCheck": true,

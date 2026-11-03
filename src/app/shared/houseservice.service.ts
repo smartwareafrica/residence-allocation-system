@@ -8,7 +8,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Houseservice } from '../shared/houseservice';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ import {AngularFirestore} from '@angular/fire/compat/firestore';
 export class HouseserviceService {
   
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: FirestoreService) {
     
   }
   ngOnInit(): void {
@@ -31,13 +31,13 @@ retrieve(){
 //add data to the firebase
   sendData(dataobj){
 
-    return this.firestore.collection('userData').add(dataobj)
+    return this.firestore.add('userData', dataobj)
     .catch(console.error);
 
   }
   //retrieve data from the db
   displayHouses(){
-    return this.firestore.collection<Houseservice>('userData').snapshotChanges();
+    return this.firestore.watch<Houseservice>('userData');
   }
 
 
